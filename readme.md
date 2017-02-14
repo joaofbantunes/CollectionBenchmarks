@@ -1,5 +1,7 @@
 Was reading issue https://github.com/dotnet/coreclr/issues/9105 and wanted to do some simple tests.
 
+The tests are really simple, I'm just summing collections of integers, either using a for and indexing or just a foreach. Using references to `int[]`, `List<int>`, `IEnumerable<int>` and `IList<int>`.
+
 Results using BenchmarkDotNet:
 
 ``` ini
