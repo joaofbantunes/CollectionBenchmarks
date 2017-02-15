@@ -14,7 +14,7 @@ namespace CollectionBenchmarks
         private static readonly IList<int> IntListIList;
         static SumBenchmark()
         {
-            IntArray = Enumerable.Range(0, 1000000).ToArray();
+            IntArray = Enumerable.Range(0, 10000000).ToArray();
             IntArrayIEnumerable = IntArray;
             IntArrayIList = IntArray;
             IntList = IntArray.ToList();

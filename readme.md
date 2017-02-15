@@ -15,15 +15,17 @@ dotnet cli version=1.0.0-preview2-1-003177
 
 
 ```
-                     Method |          Mean |     StdErr |      StdDev | Allocated |
---------------------------- |-------------- |----------- |------------ |---------- |
-                   SumArray | 1,070.2312 us |  2.8789 us |  11.1500 us |       1 B |
-            SumArrayForeach |   625.9193 us |  6.7346 us |  37.4968 us |       0 B |
- SumArrayIEnumerableForeach | 7,195.5071 us | 84.7863 us | 328.3758 us |     268 B |
-              SumArrayIList | 8,110.3863 us | 17.8078 us |  68.9694 us |      15 B |
-       SumArrayIListForeach | 6,959.9844 us | 14.6837 us |  52.9429 us |     270 B |
-                    SumList | 1,537.9584 us |  3.7530 us |  14.5353 us |       1 B |
-             SumListForeach | 3,270.2557 us | 40.4996 us | 210.4423 us |       5 B |
-  SumListIEnumerableForeach | 8,312.0782 us | 52.3717 us | 202.8345 us |     270 B |
-               SumListIList | 7,447.6672 us | 52.1640 us | 202.0302 us |      15 B |
-        SumListIListForeach | 8,398.2349 us | 92.2980 us | 357.4686 us |     270 B |
+                     Method |       Mean |    StdErr |    StdDev | Allocated |
+--------------------------- |----------- |---------- |---------- |---------- |
+                   SumArray | 11.4660 ms | 0.1137 ms | 0.5798 ms |      15 B |
+            SumArrayForeach |  6.2458 ms | 0.0693 ms | 0.3464 ms |       3 B |
+ SumArrayIEnumerableForeach | 72.6877 ms | 0.7072 ms | 2.8289 ms |     529 B |
+              SumArrayIList | 82.5250 ms | 0.5655 ms | 2.1158 ms |      30 B |
+       SumArrayIListForeach | 72.1679 ms | 0.7554 ms | 3.2048 ms |     537 B |
+                    SumList | 15.4672 ms | 0.0401 ms | 0.1502 ms |      30 B |
+             SumListForeach | 31.3917 ms | 0.2122 ms | 0.7652 ms |      30 B |
+  SumListIEnumerableForeach | 81.0612 ms | 0.1989 ms | 0.7440 ms |     540 B |
+               SumListIList | 73.9073 ms | 0.2109 ms | 0.8169 ms |       5 B |
+        SumListIListForeach | 87.0866 ms | 1.0902 ms | 6.0697 ms |     540 B |
+tIListForeach | 8,398.2349 us | 92.2980 us | 357.4686 us |     270 B |
+
