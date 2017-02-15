@@ -27,5 +27,3 @@ dotnet cli version=1.0.0-preview2-1-003177
   SumListIEnumerableForeach | 81.0612 ms | 0.1989 ms | 0.7440 ms |     540 B |
                SumListIList | 73.9073 ms | 0.2109 ms | 0.8169 ms |       5 B |
         SumListIListForeach | 87.0866 ms | 1.0902 ms | 6.0697 ms |     540 B |
-tIListForeach | 8,398.2349 us | 92.2980 us | 357.4686 us |     270 B |
-
