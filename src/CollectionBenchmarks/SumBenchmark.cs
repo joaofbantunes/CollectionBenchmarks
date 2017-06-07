@@ -9,17 +9,21 @@ namespace CollectionBenchmarks
         private static readonly int[] IntArray;
         private static readonly IEnumerable<int> IntArrayIEnumerable;
         private static readonly IList<int> IntArrayIList;
+        private static readonly IReadOnlyCollection<int> IntArrayIReadOnlyCollection;
         private static readonly List<int> IntList;
         private static readonly IEnumerable<int> IntListIEnumerable;
         private static readonly IList<int> IntListIList;
+        private static readonly IReadOnlyCollection<int> IntListIReadOnlyCollection;
         static SumBenchmark()
         {
             IntArray = Enumerable.Range(0, 10000000).ToArray();
             IntArrayIEnumerable = IntArray;
             IntArrayIList = IntArray;
+            IntArrayIReadOnlyCollection = IntArray;
             IntList = IntArray.ToList();
             IntListIEnumerable = IntList;
             IntListIList = IntList;
+            IntListIReadOnlyCollection = IntList;
         }
 
         [Benchmark]
@@ -66,6 +70,7 @@ namespace CollectionBenchmarks
             return result;
         }
 
+
         [Benchmark]
         public int SumArrayIListForeach()
         {
@@ -77,6 +82,16 @@ namespace CollectionBenchmarks
             return result;
         }
 
+        [Benchmark]
+        public int SumArrayIReadOnlyCollectionForeach()
+        {
+            int result = 0;
+
+            foreach (var val in IntArrayIReadOnlyCollection)
+                result += val;
+
+            return result;
+        }
 
         [Benchmark]
         public int SumList()
@@ -128,6 +143,17 @@ namespace CollectionBenchmarks
             int result = 0;
 
             foreach (var val in IntListIList)
+                result += val;
+
+            return result;
+        }
+
+        [Benchmark]
+        public int SumListIReadOnlyCollectionForeach()
+        {
+            int result = 0;
+
+            foreach (var val in IntListIReadOnlyCollection)
                 result += val;
 
             return result;

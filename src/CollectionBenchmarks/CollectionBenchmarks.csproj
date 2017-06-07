@@ -7,12 +7,12 @@
     <OutputType>Exe</OutputType>
     <PackageId>CollectionBenchmarks</PackageId>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
-    <RuntimeFrameworkVersion>1.1.1</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>1.1.2</RuntimeFrameworkVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.10.2" />
-    <PackageReference Include="BenchmarkDotNet.Core" Version="0.10.2" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.10.7" />
+    <PackageReference Include="BenchmarkDotNet.Core" Version="0.10.7" />
   </ItemGroup>
 
 </Project>
