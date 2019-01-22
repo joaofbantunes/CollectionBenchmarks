@@ -6,26 +6,25 @@ Results using BenchmarkDotNet:
 
 ``` ini
 
-BenchmarkDotNet=v0.10.7, OS=Windows 10 Redstone 2 (10.0.15063)
-Processor=Intel Core i7 CPU 930 2.80GHz (Nehalem), ProcessorCount=8
-Frequency=2740574 Hz, Resolution=364.8871 ns, Timer=TSC
-dotnet cli version=1.0.4
-  [Host]     : .NET Core 4.6.25211.01, 64bit RyuJIT
-  DefaultJob : .NET Core 4.6.25211.01, 64bit RyuJIT
+BenchmarkDotNet=v0.11.3, OS=Windows 10.0.17763.253 (1809/October2018Update/Redstone5)
+Intel Core i7-9700K CPU 3.60GHz, 1 CPU, 8 logical and 8 physical cores
+.NET Core SDK=2.2.200-preview-009648
+  [Host]     : .NET Core 2.2.1 (CoreCLR 4.6.27207.03, CoreFX 4.6.27207.03), 64bit RyuJIT
+  DefaultJob : .NET Core 2.2.1 (CoreCLR 4.6.27207.03, CoreFX 4.6.27207.03), 64bit RyuJIT
 
 
 ```
- |                             Method |      Mean |     Error |    StdDev |
- |----------------------------------- |----------:|----------:|----------:|
- |                           SumArray |  19.02 ms | 0.3348 ms | 0.3438 ms |
- |                    SumArrayForeach |  10.07 ms | 0.1361 ms | 0.1273 ms |
- |         SumArrayIEnumerableForeach |  74.72 ms | 0.4946 ms | 0.4130 ms |
- |                      SumArrayIList |  81.60 ms | 1.0858 ms | 1.0156 ms |
- |               SumArrayIListForeach |  75.45 ms | 1.1724 ms | 0.9790 ms |
- | SumArrayIReadOnlyCollectionForeach |  75.52 ms | 1.4058 ms | 1.3149 ms |
- |                            SumList |  25.92 ms | 0.4191 ms | 0.3920 ms |
- |                     SumListForeach |  53.15 ms | 0.5566 ms | 0.5206 ms |
- |          SumListIEnumerableForeach | 126.11 ms | 2.5073 ms | 3.2601 ms |
- |                       SumListIList |  66.01 ms | 1.2727 ms | 1.4147 ms |
- |                SumListIListForeach | 123.06 ms | 1.7533 ms | 1.5543 ms |
- |  SumListIReadOnlyCollectionForeach | 121.84 ms | 0.7436 ms | 0.6591 ms |
+|                             Method |      Mean |     Error |    StdDev | Rank | Gen 0/1k Op | Gen 1/1k Op | Gen 2/1k Op | Allocated Memory/Op |
+|----------------------------------- |----------:|----------:|----------:|-----:|------------:|------------:|------------:|--------------------:|
+|                           SumArray |  4.718 ms | 0.0190 ms | 0.0169 ms |    2 |           - |           - |           - |                   - |
+|                    SumArrayForeach |  3.442 ms | 0.0512 ms | 0.0479 ms |    1 |           - |           - |           - |                   - |
+|         SumArrayIEnumerableForeach | 40.942 ms | 0.1017 ms | 0.0901 ms |    6 |           - |           - |           - |                32 B |
+|                      SumArrayIList | 41.044 ms | 0.2977 ms | 0.2785 ms |    6 |           - |           - |           - |                   - |
+|               SumArrayIListForeach | 40.851 ms | 0.0967 ms | 0.0808 ms |    6 |           - |           - |           - |                32 B |
+| SumArrayIReadOnlyCollectionForeach | 41.441 ms | 0.1730 ms | 0.1619 ms |    7 |           - |           - |           - |                32 B |
+|                            SumList |  7.513 ms | 0.0468 ms | 0.0391 ms |    3 |           - |           - |           - |                   - |
+|                     SumListForeach | 15.289 ms | 0.0423 ms | 0.0353 ms |    4 |           - |           - |           - |                   - |
+|          SumListIEnumerableForeach | 49.581 ms | 0.2868 ms | 0.2682 ms |    8 |           - |           - |           - |                40 B |
+|                       SumListIList | 39.035 ms | 0.0934 ms | 0.0828 ms |    5 |           - |           - |           - |                   - |
+|                SumListIListForeach | 49.201 ms | 0.0265 ms | 0.0221 ms |    8 |           - |           - |           - |                40 B |
+|  SumListIReadOnlyCollectionForeach | 49.427 ms | 0.1004 ms | 0.0784 ms |    8 |           - |           - |           - |                40 B |

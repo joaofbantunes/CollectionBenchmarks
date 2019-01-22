@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace CollectionBenchmarks
 {
+    [RankColumn, MemoryDiagnoser]
     public class SumBenchmark
     {
         private static readonly int[] IntArray;
