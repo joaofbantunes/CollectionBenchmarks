@@ -15,6 +15,13 @@ namespace CollectionBenchmarks
         private static readonly IEnumerable<int> IntListIEnumerable;
         private static readonly IList<int> IntListIList;
         private static readonly IReadOnlyCollection<int> IntListIReadOnlyCollection;
+        private static readonly LinkedList<int> IntLinkedList;
+        private static readonly IEnumerable<int> IntLinkedListIEnumerable;
+        private static readonly IReadOnlyCollection<int> IntLinkedListIReadOnlyCollection;
+        private static readonly HashSet<int> IntHashSet;
+        private static readonly IEnumerable<int> IntHashSetIEnumerable;
+        private static readonly IReadOnlyCollection<int> IntHashSetIReadOnlyCollection;
+        
         static SumBenchmark()
         {
             IntArray = Enumerable.Range(0, 10000000).ToArray();
@@ -25,6 +32,12 @@ namespace CollectionBenchmarks
             IntListIEnumerable = IntList;
             IntListIList = IntList;
             IntListIReadOnlyCollection = IntList;
+            IntLinkedList = new LinkedList<int>(IntArray);
+            IntLinkedListIEnumerable = IntLinkedList;
+            IntLinkedListIReadOnlyCollection = IntLinkedList;
+            IntHashSet = new HashSet<int>(IntArray);
+            IntHashSetIEnumerable = IntHashSet;
+            IntHashSetIReadOnlyCollection = IntHashSet;
         }
 
         [Benchmark]
@@ -155,6 +168,72 @@ namespace CollectionBenchmarks
             int result = 0;
 
             foreach (var val in IntListIReadOnlyCollection)
+                result += val;
+
+            return result;
+        }
+
+        [Benchmark]
+        public int SumLinkedListForeach()
+        {
+            int result = 0;
+
+            foreach (var val in IntLinkedList)
+                result += val;
+
+            return result;
+        }
+
+        [Benchmark]
+        public int SumLinkedListIEnumerableForeach()
+        {
+            int result = 0;
+
+            foreach (var val in IntLinkedListIEnumerable)
+                result += val;
+
+            return result;
+        }
+
+        [Benchmark]
+        public int SumLinkedListIReadOnlyCollectionForeach()
+        {
+            int result = 0;
+
+            foreach (var val in IntLinkedListIReadOnlyCollection)
+                result += val;
+
+            return result;
+        }
+
+        [Benchmark]
+        public int SumHashSetForeach()
+        {
+            int result = 0;
+
+            foreach (var val in IntHashSet)
+                result += val;
+
+            return result;
+        }
+
+        [Benchmark]
+        public int SumHashSetIEnumerableForeach()
+        {
+            int result = 0;
+
+            foreach (var val in IntHashSetIEnumerable)
+                result += val;
+
+            return result;
+        }
+
+        [Benchmark]
+        public int SumHashSetIReadOnlyCollectionForeach()
+        {
+            int result = 0;
+
+            foreach (var val in IntHashSetIReadOnlyCollection)
                 result += val;
 
             return result;
